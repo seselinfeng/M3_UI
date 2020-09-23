@@ -9,5 +9,9 @@ class HotelDetail(BasePage):
         self.mini = mini
 
     def goto_hotel_scheduled(self):
+        """
+        跳转到酒店预订页
+        :return:
+        """
         self.step(self.mini, '../data/hotel_detail.yaml')
         return HotelScheduled(self.mini)

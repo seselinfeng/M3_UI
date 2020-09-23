@@ -1,19 +1,17 @@
 import allure
-import logging
 from appium.webdriver.common.mobileby import MobileBy
 from selenium.webdriver.common.by import By
 
+from pages.basepage import BasePage
 
 
 def handle_black(func):
     """
-    黑名单处理(目前支持首页协议和部分弹窗异常处理)
+    黑名单处理
     :param func:
     :return:
     """
-
     def handle(*args, **kwargs):
-        from SnowballFramework.pages.BasePage import BasePage
         # 首次进入隐私协议黑名单
         _black_list = [
             (By.XPATH, "//*[@text='确认']"),
@@ -28,7 +26,6 @@ def handle_black(func):
         # 拿到BasePage实例对象
         instance: BasePage = args[0]
         try:
-            log.info("run " + func.__name__ + "\n args: \n" + repr(args[1:]) + "\n" + repr(kwargs))
             element = func(*args, **kwargs)
             # 重置失败次数
             _error_count = 0
@@ -36,7 +33,6 @@ def handle_black(func):
             return element
         except Exception as e:
             # 错误日志
-            log.error("element not found, handle black list")
             # 错误截图
             instance.screenshot("../screenshot/tmp.png")
             with open("tmp.png", "rb") as f:
