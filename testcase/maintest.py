@@ -12,7 +12,7 @@ class MainTest(minium.MiniTest):
     #     assert res == 'True'
 
     def test_order_list(self):
-        res = self.main.goto_hotel_list().goto_hotel_detail().goto_hotel_scheduled().goto_order_detail()
+        res = self.main.goto_hotel_list().goto_hotel_detail().goto_hotel_scheduled().save_order().goto_order_detail()
         assert res == 'True'
 
     def tearDown(self):

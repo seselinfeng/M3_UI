@@ -2,5 +2,5 @@ goto_hotel_list:
   - by: button
     locator:
       inner_text: 搜索酒店
-      max_timeout: 3
+      max_timeout: 30
     action: click

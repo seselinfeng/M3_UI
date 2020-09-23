@@ -13,8 +13,12 @@ class HotelScheduled(BasePage):
         :return:
         """
         self.step(self.mini, '../data/hotel_scheduled.yaml')
-        return "True"
+        return HotelScheduled(self.mini)
 
     def goto_order_detail(self):
+        """
+        跳转到订单列表页面
+        :return:
+        """
         self.mini.app.navigate_to("/pages/order/list/list")
         return "True"
