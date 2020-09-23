@@ -1,0 +1,11 @@
+goto_hotel_scheduled:
+  - by: view
+    locator:
+      inner_text: IP房
+      max_timeout: 5
+    action: click
+  - by: .btn-action
+    locator:
+      inner_text: 立即预订
+      max_timeout: 5
+    action: click
