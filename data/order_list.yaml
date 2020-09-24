@@ -1,4 +1,4 @@
-goto_hotel_list:
+goto_order_detail:
   - selector: button
     locator:
       inner_text: 搜索酒店

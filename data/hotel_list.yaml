@@ -1,5 +1,5 @@
 goto_hotel_detail:
-  - by: .img
+  - selector: .img
     locator:
       max_timeout: 30
     action: click

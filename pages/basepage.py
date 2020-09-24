@@ -2,15 +2,17 @@ import inspect
 import json
 import minium
 import yaml
+from minium import WXMinium
 
 
 class BasePage(minium.MiniTest):
     _params = {}  # 参数化的数据
 
-    def __init__(self):
+    def __init__(self, mini: WXMinium = None):
         super(BasePage, self).__init__()
+        self._mini = mini
 
-    def find(self, mini, locator, value: str = None):
+    def find(self, locator, value: str = None):
         """
         查找元素
         :param locator:
@@ -19,11 +21,11 @@ class BasePage(minium.MiniTest):
         """
         element = None
         if isinstance(locator, tuple):
-            element = mini.page.get_element(*locator)
+            element = self._mini.app.get_current_page().get_element(*locator)
         elif isinstance(value, dict):
-            element = mini.page.get_element(locator, **value)
+            element = self._mini.app.get_current_page().get_element(locator, **value)
         else:
-            element = mini.page.get_element(locator, inner_text=value)
+            element = self._mini.app.get_current_page().get_element(locator, inner_text=value)
         return element
 
     def finds(self, mini, locator, value: str = None):
@@ -35,14 +37,14 @@ class BasePage(minium.MiniTest):
         """
         elements: list
         if isinstance(locator, tuple):
-            elements = mini.page.get_elements(*locator)
+            elements = self._mini.app.get_current_page().get_elements(*locator)
         elif isinstance(value, dict):
-            element = mini.page.get_elements(locator, **value)
+            elements = self._mini.app.get_current_page().get_elements(locator, **value)
         else:
-            element = mini.page.get_elements(locator, inner_text=value)
+            elements = self._mini.app.get_current_page().get_elements(locator, inner_text=value)
         return elements
 
-    def step(self, mini, path: str = None):
+    def step(self, path: str = None):
         """
         操作步骤以及操作步骤的数据驱动
         :param path:
@@ -62,9 +64,9 @@ class BasePage(minium.MiniTest):
             # 反序列化
             steps = json.loads(raw)
             for step in steps:
-                if 'by' in step.keys():
-                    if 'by' in step.keys():
-                        element = self.find(mini, step.get('by'), step.get('locator'))
+                if 'selector' in step.keys():
+                    if 'selector' in step.keys():
+                        element = self.find(step.get('selector'), step.get('locator'))
                     if 'action' in step.keys():
                         action = step.get('action')
                         if action == 'click':
