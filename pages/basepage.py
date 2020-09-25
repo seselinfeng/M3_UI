@@ -28,7 +28,7 @@ class BasePage(minium.MiniTest):
             element = self._mini.app.get_current_page().get_element(locator, inner_text=value)
         return element
 
-    def finds(self, mini, locator, value: str = None):
+    def finds(self, locator, value: str = None):
         """
         查找多个元素
         :param locator:
@@ -65,8 +65,10 @@ class BasePage(minium.MiniTest):
             steps = json.loads(raw)
             for step in steps:
                 if 'selector' in step.keys():
+                    # 定位元素
                     if 'selector' in step.keys():
                         element = self.find(step.get('selector'), step.get('locator'))
+                    # 触发事件
                     if 'action' in step.keys():
                         action = step.get('action')
                         if action == 'click':
@@ -78,4 +80,8 @@ class BasePage(minium.MiniTest):
                         if action == 'get_text':
                             # 获取文本
                             element = element.text
+                    # 滚动页面
+                    if 'scroll' in step.keys():
+                        element = self.find(step.get('selector'), step.get('locator'))
+                        element.scroll_to(step.get('x'), step.get('y'))
         return element

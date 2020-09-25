@@ -3,6 +3,7 @@ from appium import webdriver
 
 from pages.basepage import BasePage
 from pages.main import Main
+from pages.orderlist import OrderList
 from pages.routing import Routing
 
 
@@ -20,5 +21,9 @@ class App(BasePage):
 
     def main(self):
         return Main(self._mini)
+
     def routing(self):
         return Routing(self._mini)
+
+    def order_list(self):
+        return OrderList(self._mini)

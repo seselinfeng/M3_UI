@@ -1,20 +1,19 @@
 from pages.basepage import BasePage
-from pages.hotellist import HotelList
 
 
 class OrderList(BasePage):
     """订单列表页"""
 
-    def __init__(self, mini):
+    def scroll_to_footer(self):
         """
-        初始化订单列表页
-        :param mini:
+        滚动到页面底部
+        :return:
         """
-        self.mini = mini
+        self.step('../data/order_list.yaml')
 
     def goto_order_detail(self):
         """
         跳转到订单详情页
         :return:
         """
-        self.step(self.mini, '../data/order_list.yaml')
+        self.step('../data/order_list.yaml')

@@ -4,12 +4,6 @@ from pages.hotellist import HotelList
 
 class Main(BasePage):
     """首页"""
-    # def __init__(self):
-    #     """
-    #     初始化首页
-    #     :param mini:
-    #     """
-    #     # self.mini = mini
 
     def goto_hotel_list(self):
         """

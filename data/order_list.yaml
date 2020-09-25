@@ -1,6 +1,9 @@
+scroll_to_footer:
+  - scroll:
+    selector: .scroll
+    x: 0
+    y: 500
 goto_order_detail:
-  - selector: button
-    locator:
-      inner_text: 搜索酒店
-      max_timeout: 30
-    action: click
+  - selector: .item
+    index: 0
+
