@@ -29,8 +29,8 @@ class MainTest(minium.MiniTest):
         with allure.step("跳转到订单列表页"):
             self.routing.goto_order_list()
         time.sleep(3)
-        with allure.step("滑动到页面底部"):
-            self.order_list.scroll_to_footer()
+        with allure.step("获取当前页面第一个订单,并点击"):
+            self.order_list.get_order_list()[0].click()
 
     def tearDown(self):
         # 回到首页

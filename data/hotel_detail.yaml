@@ -1,11 +1,11 @@
 goto_hotel_scheduled:
   - selector: view
-    locator:
+    params:
       inner_text: IP房
       max_timeout: 30
     action: click
   - selector: .btn-action
-    locator:
+    params:
       inner_text: 立即预订
       max_timeout: 30
     action: click

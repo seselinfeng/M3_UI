@@ -3,7 +3,7 @@ scroll_to_footer:
     selector: .scroll
     x: 0
     y: 500
-goto_order_detail:
-  - selector: .item
-    index: 0
+get_order_list:
+  - selector: .info
+    type: elements
 

@@ -1,16 +1,16 @@
 save_order:
   - selector: input[placeholder='请输入住人姓名']
-    locator:
+    params:
       max_timeout: 30
     action: input
     value: 李福庆
   - selector: input[placeholder='请输入住人手机号']
-    locator:
+    params:
       max_timeout: 30
     action: input
     value: 18516126760
   - selector: button
-    locator:
+    params:
       inner_text: 去支付
       max_timeout: 30
     action: click

@@ -1,6 +1,6 @@
 goto_hotel_list:
   - selector: button
-    locator:
+    params:
       inner_text: 搜索酒店
       max_timeout: 30
     action: click

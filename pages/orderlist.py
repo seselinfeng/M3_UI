@@ -11,9 +11,9 @@ class OrderList(BasePage):
         """
         self.step('../data/order_list.yaml')
 
-    def goto_order_detail(self):
+    def get_order_list(self):
         """
-        跳转到订单详情页
+        获取当前页面订单元素列表
         :return:
         """
-        self.step('../data/order_list.yaml')
+        return self.steps('../data/order_list.yaml')
