@@ -3,12 +3,12 @@ save_order:
     params:
       max_timeout: 30
     action: input
-    value: 李福庆
+    value: ${name}
   - selector: input[placeholder='请输入住人手机号']
     params:
       max_timeout: 30
     action: input
-    value: 18516126760
+    value: ${phone}
   - selector: button
     params:
       inner_text: 去支付

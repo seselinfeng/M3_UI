@@ -1,7 +1,7 @@
 goto_hotel_scheduled:
   - selector: view
     params:
-      inner_text: IP房
+      inner_text: ${room_type}
       max_timeout: 30
     action: click
   - selector: .btn-action

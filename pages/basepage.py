@@ -113,5 +113,4 @@ class BasePage(minium.MiniTest):
                 if 'selector' in step.keys():
                     if step.get('type') == 'elements':
                         elements = self.finds(step.get('selector'), step.get('params'))
-        print(elements)
         return elements
