@@ -1,4 +1,28 @@
-goto_hotel_list:
+goto_day_hotel_list:
+  - selector: button
+    params:
+      inner_text: 搜索酒店
+      max_timeout: 30
+    action: click
+
+goto_hour_hotel_list:
+  - selector: view
+    params:
+      inner_text: 时租
+      max_timeout: 30
+    action:click
+  - selector: button
+    params:
+      inner_text: 搜索酒店
+      max_timeout: 30
+    action: click
+
+goto_night_hotel_list:
+  - selector: view
+    params:
+      inner_text: 整夜
+      max_timeout: 30
+    action:click
   - selector: button
     params:
       inner_text: 搜索酒店
