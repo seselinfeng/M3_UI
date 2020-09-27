@@ -13,17 +13,18 @@ class MainTest(minium.MiniTest):
         self.routing = self.app.start().routing()
         self.order_list = self.app.start().order_list()
 
-    # def test_order(self):
-    #     # 下单
-    #     self.main.goto_hotel_list().goto_hotel_detail().goto_hotel_scheduled().save_order()
-    #     # 去订单列表页
-    #     self.routing.goto_order_list()
-    #
-    # def test_order_list(self):
-    #     # 回到首页
-    #     self.routing.goto_main()
-    #     # 下单
-    #     self.main.goto_hotel_list().goto_hotel_detail().goto_hotel_scheduled().save_order()
+    def test_order(self):
+        # 下单
+        self.main.goto_hotel_list().goto_hotel_detail().goto_hotel_scheduled().save_order()
+        # 去订单列表页
+        self.routing.goto_order_list()
+
+    def test_order_list(self):
+        # 回到首页
+        self.routing.goto_main()
+        # 下单
+        self.main.goto_hotel_list().goto_hotel_detail().goto_hotel_scheduled().save_order()
+
     @allure.title("测试demo")
     def test_demo(self):
         with allure.step("跳转到订单列表页"):
@@ -32,10 +33,13 @@ class MainTest(minium.MiniTest):
         with allure.step("获取当前页面第一个订单,并点击"):
             self.order_list.get_order_list()[0].click()
 
+    def test_demo1(self):
+        self.main.set_day_date(29, 30)
+
     def tearDown(self):
         # 回到首页
         time.sleep(3)
-        self.routing.goto_main()
+        # self.routing.goto_main()
 
 
 if __name__ == '__main__':
