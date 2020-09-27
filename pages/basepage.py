@@ -17,7 +17,7 @@ class BasePage(minium.MiniTest):
         查找元素
         :param locator:
         :param value:
-        :return:
+        :return: element
         """
         element = None
         if isinstance(locator, tuple):
@@ -33,7 +33,7 @@ class BasePage(minium.MiniTest):
         查找多个元素
         :param locator:
         :param value:
-        :return:
+        :return: element
         """
         elements: list
         if isinstance(locator, tuple):
@@ -48,7 +48,7 @@ class BasePage(minium.MiniTest):
         """
         操作步骤以及操作步骤的数据驱动
         :param path:
-        :return:
+        :return: element
         """
         element = None
         with open(path, encoding='utf-8') as f:
@@ -93,7 +93,7 @@ class BasePage(minium.MiniTest):
         """
         操作步骤以及操作步骤的数据驱动
         :param path:
-        :return:
+        :return: elements
         """
         elements = None
         with open(path, encoding='utf-8') as f:
