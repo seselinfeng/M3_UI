@@ -39,7 +39,4 @@ class Main(BasePage):
         self._params['start_date'] = start_date
         self._params['end_date'] = end_date
         self.step('../data/main.yaml')
-        # self._mini.app.get_current_page().get_element(".time").click()
-        # el = self._mini.app.get_current_page().get_element("view", inner_text="29")
-        # print(el)
-        # el.click()
+        return Main(self._mini)

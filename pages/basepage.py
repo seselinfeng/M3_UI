@@ -71,8 +71,6 @@ class BasePage(minium.MiniTest):
                             element = self.finds(step.get('selector'), step.get('params'))[step.get('index')]
                     else:
                         element = self.find(step.get('selector'), step.get('params'))
-                    print(element, element.attribute("inner_text"), element.attribute("value"),
-                          element.attribute("type"))
                 # 触发事件
                 if 'action' in step.keys():
                     action = step.get('action')
